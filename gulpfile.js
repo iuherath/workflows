@@ -33,14 +33,14 @@ gulp.task('js', function(){
     .pipe(gulp.dest('builds/development/js'))
 })
 
-gulp.task('compass', function () {
+gulp.task('compass', function(){
     gulp.src(sassSources)
-        .pipe(compass({
-            sass: 'components/sass',
-            style: 'compressed'
-        }))
-        .on('error', gutil.log)
-        .pipe(gulp.dest('builds/development/css'))
-});
-
+    .pipe(compass({
+        sass: 'components/sass',
+        image: 'builds/development/images',
+        style: 'nested'
+    })
+    .on('error', gutil.log))
+    .pipe(gulp.dest('builds/development/css'))
+})
 
